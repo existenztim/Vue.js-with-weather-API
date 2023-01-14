@@ -33,7 +33,7 @@ const count = ref(0)
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
-<style scoped>
+<style scoped> /*Scoped make this rule apply to only this module, scoped lang="scss" if sass is used*/
 .read-the-docs {
   color: #888;
 }
