@@ -8,7 +8,7 @@
     </div>
     <div class ="query">{{ query }} {{ country }}</div> <!--might capitalize first letter-->
     <div class ="temp">{{ temp }}</div>
-    <div class ="weather">{{ weather }}</div>
+    <div class ="weather">{{ weather }} <img src="http://openweathermap.org/img/wn/04n.png"></div> <!--https://openweathermap.org/weather-conditions-->
   </main>
   <!--<HelloWorld msg="Vite + Vue" /> self closing tag-->
 </template>
