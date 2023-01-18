@@ -1,7 +1,9 @@
-# Vue 3 + Vite
+# in progress!
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This project will be something I do on my spare time. The main goal is to get better
+with API and Vue.js. So why not do what every developer has done atleast once... a weather APP! 
 
-## Recommended IDE Setup
+# Upcomming demo
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Even tough the project is in early development it already does basic things like displaying city/temp/weather aswell as an weather-icon. Once I've added some SCSS 
+a link with a demo will be shown here. 
