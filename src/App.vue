@@ -1,15 +1,21 @@
 <template>
   <main>
-    <div class="search-box">
-      <input class="search-bar"
-        type="text"
-        placeholder="Search..."
-        v-model="query"
-        @keypress.enter="fetchWheater"/> <!--call function when enter is pressed-->
+    <h1>Vue.js With Open-Weather-Map API</h1>
+    <div class= "card-container">
+      <div class="search-box">
+        <input class="search-bar"
+          type="text"
+          placeholder="Type a city name..."
+          v-model="query"
+          @keypress.enter="fetchWheater"/> <!--call function when enter is pressed-->
+        <button @click="fetchWheater">Get data</button> <!--or button is clicked-->
+        </div>
+      <div class="weather-box" v-if="(typeof weather != 'undefined')">
+        <div class ="weather-box-item query">{{ query }} {{ country }}</div>
+        <div class ="weather-box-item temp">{{ temp }}</div>
+        <div class ="weather-box-item weather">{{ weather }} <img :src="`http://openweathermap.org/img/wn/${iconSrc}.png`"></div> <!--https://openweathermap.org/weather-conditions-->
+      </div>
     </div>
-    <div class ="query">{{ query }} {{ country }}</div> <!--might capitalize first letter-->
-    <div class ="temp">{{ temp }}</div>
-    <div class ="weather">{{ weather }} <img :src="`http://openweathermap.org/img/wn/${iconSrc}.png`"></div> <!--https://openweathermap.org/weather-conditions-->
   </main>
   <!--<HelloWorld msg="Vite + Vue" /> self closing tag-->
 </template>
@@ -22,12 +28,12 @@ import { ref } from 'vue';
 const apiKey = '7453b8cce1610c8d5caa675608b66681';
 const url = 'https://api.openweathermap.org/data/2.5/';
 const units = 'metric';
-const country = ref('');
+const country = ref(''); // '' to make it string type
 const temp = ref('');
-const weather = ref('');
+const weather = ref(); // initially undefined
 const query = ref('');
 const iconSrc = ref('');
-
+console.log(typeof query.value);
 const fetchWheater = () => {
   fetch(`${url}weather?q=${query.value}&units=${units}&APPID=${apiKey}`) // the query string
     .then((res) => {
@@ -51,5 +57,43 @@ const fetchWheater = () => {
 </script>
 
 <style scoped>
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 640px;
+    padding: 25px;
+    border-radius: 15%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.75));
+  }
+  .weather-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 320px;
+    max-width: 640px;
+  }
+  .weather-box-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .temp{
+    font-size: 3rem;
+    padding: 1rem 0 1rem 0;
+  }
 
+  .search-box {
+  display: flex;
+  flex-direction: row;
+  }
 </style>
