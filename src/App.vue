@@ -25,7 +25,8 @@ import { ref } from 'vue';
 // import HelloWorld from './components/HelloWorld.vue';
 // behöver ej importa om komponenten ej har script
 
-const apiKey = '7453b8cce1610c8d5caa675608b66681';
+// combine vars in an object?
+const apiKey = import.meta.env.VITE_API_KEY;
 const url = 'https://api.openweathermap.org/data/2.5/';
 const units = 'metric';
 const country = ref(''); // '' to make it string type
@@ -56,22 +57,20 @@ const fetchWheater = () => {
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   main {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
-  }
-  .card-container {
+    height: 100vh;
+    .card-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     max-width: 640px;
     padding: 25px;
-    border-radius: 15%;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.75));
   }
   .weather-box{
     display: flex;
@@ -96,4 +95,6 @@ const fetchWheater = () => {
   display: flex;
   flex-direction: row;
   }
+}
+
 </style>
