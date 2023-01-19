@@ -48,7 +48,6 @@ const fetchWheater = () => {
       weather.value = json.weather[0].main;
       iconSrc.value += json.weather[0].icon;
       temp.value += ' °c';
-      console.log(iconSrc);
     })
     .catch((err) => {
       console.error(err);
