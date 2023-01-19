@@ -1,4 +1,4 @@
-# in progress!
+# In progress!
 
 This project will be something I do on my spare time. The main goal is to get better
 with API and Vue.js. So why not do what every developer has done atleast once... a weather APP! 
