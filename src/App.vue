@@ -8,7 +8,7 @@
           placeholder="Type a city name..."
           v-model="query"
           @keypress.enter="fetchWheater"/> <!--call function when enter is pressed-->
-        <button @click="fetchWheater">Get data</button> <!--or button is clicked-->
+          <button @click="fetchWheater">Get data</button> <!--or button is clicked-->
         </div>
       <div class="weather-box" v-if="(typeof weather != 'undefined')">
         <div class ="weather-box-item query">{{ query }} {{ country }}</div>
@@ -42,6 +42,7 @@ const fetchWheater = () => {
       return res.json();
     })
     .then((json) => {
+      console.log(json);
       iconSrc.value = '';
       temp.value = (Math.round(json.main.temp));
       country.value = json.sys.country;
@@ -51,6 +52,13 @@ const fetchWheater = () => {
     })
     .catch((err) => {
       console.error(err);
+      iconSrc.value = '';
+      temp.value = '';
+      country.value = '';
+      weather.value = '';
+      iconSrc.value = '';
+      temp.value = '';
+      query.value = 'Could not find location';
     });
 };
 
@@ -58,42 +66,27 @@ const fetchWheater = () => {
 
 <style scoped lang="scss">
   main {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    height: 100vh;
-    .card-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    max-width: 640px;
-    padding: 25px;
-  }
-  .weather-box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 320px;
-    max-width: 640px;
-  }
-  .weather-box-item{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  .temp{
-    font-size: 3rem;
-    padding: 1rem 0 1rem 0;
-  }
+    height: 80vh;
 
-  .search-box {
-  display: flex;
-  flex-direction: row;
-  }
+    h1 {
+      font-size: clamp(1rem, 5vw, 4rem);
+      text-align: center;
+    }
+    .card-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+      background-color: rgb(54, 54, 54);
+    //   .search-box {
+
+    //     .search-bar{
+
+    //     }
+    //   }
+    //   .weather-box {
+    //   }
+     }
 }
-
 </style>
