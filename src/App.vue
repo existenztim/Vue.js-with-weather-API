@@ -79,14 +79,13 @@ const fetchWheater = () => {
       flex-direction: column;
       height: 100%;
       background-color: rgb(54, 54, 54);
-    //   .search-box {
-
-    //     .search-bar{
-
-    //     }
-    //   }
-    //   .weather-box {
-    //   }
+      .weather-box {
+        padding: 2rem;
+        .temp{
+          padding: 2rem 0 2rem 0;
+          font-size: 3rem;
+        }
+      }
      }
 }
 </style>
